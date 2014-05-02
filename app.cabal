@@ -4,30 +4,61 @@
 name:                app
 version:             0.1.0.0
 synopsis:            Starter kit project for Scotty Apps
--- description:         
+description:         Starter kit project for Scotty Apps
 homepage:            https://github.com/dmjio/scotty-starter
--- license:             
+license:             MIT
+license-file:        LICENSE
 author:              David Johnson
 maintainer:          djohnson.m@gmail.com
 -- copyright:           
 category:            Web
 build-type:          Simple
 -- extra-source-files:  
-cabal-version:       >=1.8
+cabal-version:       >=1.10
+
+source-repository head
+  type:     git
+  location: git://github.com/dmjio/scotty-starter.git
 
 executable app
   main-is:             Main.hs
-  -- other-modules:       
   other-extensions:    OverloadedStrings
-  build-depends:       base ==4.5.*, 
-                       wai ==1.3.*,
-                       warp ==1.3.*,
-                       wai-extra >=1.3 && <1.4, 
+  build-depends:       base == 4.6.*, 
+                       warp,
+                       wai,
+                       wai-extra,
                        wai-middleware-static,
                        scotty,
                        clay, 
                        text, 
                        blaze-html,
                        blaze-markup
-  -- hs-source-dirs:      
-  default-language:    Haskell2010
+  hs-source-dirs:      src
+  default-language:    Haskell98
+
+test-suite spec
+  main-is:             Spec.hs
+  type:                exitcode-stdio-1.0
+  ghc-options:         -Wall -Werror
+  build-depends:       base == 4.6.*,
+                       scotty,
+                       clay,
+                       text,
+                       blaze-html,
+                       blaze-markup,
+                       HUnit,
+                       bytestring,
+                       conduit,
+                       text,
+                       path-pieces,
+                       http-types,
+                       mtl,
+                       network,
+                       wai,
+                       wai-test,
+                       wai-extra,
+                       hspec,
+                       hspec-expectations
+  hs-source-dirs:      src,
+                       test
+  default-language:    Haskell98

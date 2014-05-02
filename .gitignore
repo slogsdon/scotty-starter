@@ -1,5 +1,6 @@
-.hsenv
+.cabal-sandbox
 dist
+cabal.sandbox.config
 *.o
 *.hi
 

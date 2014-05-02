@@ -1,22 +1,37 @@
 {-# LANGUAGE OverloadedStrings #-}
+{- |
+Module      :  <File name or $Header$ to be replaced automatically>
+Description :  <optional short text displayed on contents page>
+Copyright   :  (c) <Authors or Affiliations>
+License     :  <license>
+
+Maintainer  :  <email>
+Stability   :  unstable | experimental | provisional | stable | frozen
+Portability :  portable | non-portable (<reason>)
+
+<module description starting at first column>
+-}
 
 module Views.Home (homeView) where
 
-import           Client.CSS                  (layoutCss)
+-- Standard Library
 import           Data.Monoid                 (mempty)
 import           Data.Text.Lazy              (toStrict)
 import           Prelude                     hiding (div, head, id)
-import           Text.Blaze.Html             (Html, toHtml)
+
+-- Third Party
 import           Text.Blaze.Html5            (Html, a, body, button,
                                               dataAttribute, div, docTypeHtml,
-                                              form, h1, h2, head, input, li,
-                                              link, meta, p, script, style,
-                                              title, ul, (!))
+                                              h1, head, li, link, meta, p, 
+                                              script, style, title, ul, (!))
 import           Text.Blaze.Html5.Attributes (charset, class_, content, href,
                                               httpEquiv, id, media, name,
-                                              placeholder, rel, src, type_)
-import           Views.Utils                 (blaze, pet)
+                                              rel, src, type_)
 import           Web.Scotty                  (ActionM)
+
+-- Application
+import           Client.CSS                  (layoutCss)
+import           Views.Utils                 (blaze, pet)
 
 layout :: Html -> Html -> Html
 layout t b = docTypeHtml $ do
